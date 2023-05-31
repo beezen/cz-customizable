@@ -1,12 +1,13 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "gmu-cz-customizable",
   "description": "Commitizen customizable adapter following the conventional-changelog format.",
   "main": "index.js",
   "types": "index.d.ts",
   "bin": {
     "cz-customizable": "./standalone.js",
-    "cz-cust": "./standalone.js"
+    "cz-cust": "./standalone.js",
+    "gmucz": "./standalone.js"
   },
   "scripts": {
     "lint": "node_modules/eslint/bin/eslint.js *.js __tests__/**.js",
