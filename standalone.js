@@ -8,9 +8,17 @@ const log = require('./lib/logger');
 
 log.info('cz-customizable standalone version');
 
+/** 日志兼容提交 */
+function doCommit(msgStr){
+  const actions = msgStr.split('\n').map(msg => {
+    return `-m "${msg}"`
+  });
+  execSync(`git commit ${actions.join(" ")}`, { stdio: [0, 1, 2] });
+}
+
 const commit = (commitMessage) => {
   try {
-    execSync(`git commit -m "${commitMessage}"`, { stdio: [0, 1, 2] });
+    doCommit(commitMessage)
   } catch (error) {
     log.error('>>> ERROR', error.error);
   }
