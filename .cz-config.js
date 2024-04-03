@@ -26,7 +26,7 @@ module.exports = {
     { value: 'WIP', name: 'WIP:      Work in progress' },
   ],
 
-  scopes: [{ name: 'accounts' }, { name: 'admin' }, { name: 'exampleScope' }, { name: 'changeMe' }],
+  // scopes: [{ name: 'accounts' }, { name: 'admin' }, { name: 'exampleScope' }, { name: 'changeMe' }],
 
   allowTicketNumber: false,
   isTicketNumberRequired: false,
@@ -57,7 +57,7 @@ module.exports = {
     footer: 'List any ISSUES CLOSED by this change (optional). E.g.: #31, #34:\n',
     confirmCommit: 'Are you sure you want to proceed with the commit above?',
   },
-  isInputRequired:["customScope","subject"],
+  // isInputRequired:["customScope","subject"],
   allowCustomScopes: true,
   allowBreakingChanges: ['feat', 'fix'],
   // skip any questions you want

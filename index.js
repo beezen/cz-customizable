@@ -11,15 +11,21 @@ const buildCommit = require('./lib/build-commit');
 const readConfigFile = require('./lib/read-config-file');
 
 module.exports = {
+  /**
+   * 提词器函数
+   * @param {*} cz 即 inquirer 模块
+   * @param {*} commit 日志提交函数
+   */
   prompter(cz, commit) {
-    const config = readConfigFile();
-    config.subjectLimit = config.subjectLimit || 100;
+    const config = readConfigFile(); // 获取配置文件信息
+    config.subjectLimit = config.subjectLimit || 100; // 标题长度限制
     log.info('All lines except first will be wrapped after 100 characters.');
 
     const questions = require('./lib/questions').getQuestions(config, cz);
 
     cz.prompt(questions).then((answers) => {
       if (answers.confirmCommit === 'edit') {
+        // 重新编辑
         temp.open(null, (err, info) => {
           /* istanbul ignore else */
           if (!err) {
